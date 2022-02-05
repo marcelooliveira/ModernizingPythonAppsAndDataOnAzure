@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/3acc8650-3ea0-42db-b1dd-694439b0aa06/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/ConduitWebApp",
+  "appService.deploySubpath": "."
+}
