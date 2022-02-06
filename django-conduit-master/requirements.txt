@@ -1,3 +1,5 @@
 # requirements.txt file
 Django==2.2.3
 djangorestframework==3.13.1
+psycopg2==2.9.3
+psycopg2-binary==2.9.3
