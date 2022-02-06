@@ -29,12 +29,12 @@ def read(fname):
         return f.read()
 
 setup(
-    name="django-helloworld",
+    name="django-conduit",
     version="0.1",
     description="A Django 'Hello World' program example",
     long_description=read('README.rst'),
     classifiers=CLASSIFIERS,
-    keywords="example helloworld django program",
+    keywords="example conduit django program",
     author="Alex Clark",
     author_email="aclark@aclark.net",
     maintainer="Leonardo J. Caballero G.",

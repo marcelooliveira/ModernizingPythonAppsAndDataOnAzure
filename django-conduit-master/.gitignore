@@ -7,5 +7,5 @@
 *.pyo
 build/
 dist/
-helloworld.db
+conduit.db
 local_settings.py
