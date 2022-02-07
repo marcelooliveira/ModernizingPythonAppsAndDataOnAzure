@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'conduit.apps.articles',
+    'conduit.apps.authentication',
+    'conduit.apps.core',
+    'conduit.apps.profiles',
 ]
 
 MIDDLEWARE = [
