@@ -421,7 +421,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"article\":{\"title\":\"Create a new implementation\",\"description\":\"join the community by creating a new implementation\",\"body\":\"Share your knowledge and enpower the community by creating a new implementation\"\r\n,\"tagList\":[\"implementations\"]}}"
+							"raw": "{\"article\":{\"title\":\"Create a new implementation\",\"description\":\"join the community by creating a new implementation\",\"body\":\"Share your knowledge and empower the community by creating a new implementation\"\r\n,\"tagList\":[\"implementations\"]}}"
 						},
 						"url": {
 							"raw": "{{APIURL}}/articles",
