@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  article4:
+    image: article4
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:8000
