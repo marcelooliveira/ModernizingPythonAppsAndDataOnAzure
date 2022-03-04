@@ -1,29 +1,29 @@
-UPDATE ALLOWED_HOSTS TO '*'
+# UPDATE ALLOWED_HOSTS TO '*'
 
-az login
+# BUILD IMAGE conduit:v1
 
-az group create --name django-project --location eastus
+# az login
 
-az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
+az group create --name conduit-rg --location eastus
 
-az aks get-credentials --resource-group django-project --name djangoappcluster
+az aks create --resource-group conduit-rg --name conduit-cluster --node-count 1 --generate-ssh-keys
 
-kubectl get nodes
-
-BUILD IMAGE
+az aks get-credentials --resource-group conduit-rg --name conduit-cluster
 
 az ad sp create-for-rbac --role AcrPull
 
-az acr login --name conduitacr
+az acr login --name conduit-acr
 
-az aks update -n djangoappcluster -g django-project --attach-acr conduitacr
+az aks update -n conduit-cluster -g conduit-rg --attach-acr conduit-acr
 
-docker tag conduit:v1 conduitacr.azurecr.io/conduit:v1
+docker tag conduit:v1 conduit-acr.azurecr.io/conduit:v1
 
-docker push conduitacr.azurecr.io/conduit:v1
+docker push conduit-acr.azurecr.io/conduit:v1
 
-kubectl apply -f djangoapp.yaml
+kubectl apply -f conduit-app.yaml
 
 kubectl get service conduit --watch
 
+# COPY EXTERNAL IP
 
+# MODIFY ON AZURE: Home > conduit-cluster > conduit > conduit | YAML
