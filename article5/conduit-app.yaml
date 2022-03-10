@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conduit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: conduit
+  template:
+    metadata:
+      labels:
+        app: conduit
+    spec:
+      containers:
+      - name: conduit
+        # image: conduit:v1
+        image: conduitacr.azurecr.io/conduit:v1
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_NAME
+          value: "conduit_db"
+        - name: DATABASE_USER
+          value: "myadmin@mydemoserver-20220116"
+        - name: DATABASE_PASSWORD
+          value: "123!@#qweQWE"
+        - name: DATABASE_HOST
+          value: "mydemoserver-20220116.postgres.database.azure.com"
+        - name: AKS_HOST
+          value: "my-aks-cluster-external-ip"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - django-app
+              topologyKey: "kubernetes.io/hostname"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: conduit
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+  selector:
+    app: conduit
