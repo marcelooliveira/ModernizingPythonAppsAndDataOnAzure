@@ -1,0 +1,1 @@
+SELECT json_agg(authentication_user) as users FROM authentication_user;

@@ -1,0 +1,1 @@
+[{"id": 1, "password": "pbkdf2_sha256$30000$hcyFHvW8VsVA$s4yQHUtXuVJmnBkrk0mqSFmT447yoUYLeF4+z4ddvUo=", "last_login": null, "is_superuser": false, "username": "alice_smith", "email": "alice@smith.com", "is_active": true, "is_staff": false, "created_at": "2022-01-15T15:43:38.071+00:00", "updated_at": "2022-01-15T15:43:38.071+00:00"}]

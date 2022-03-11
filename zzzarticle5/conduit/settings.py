@@ -25,8 +25,7 @@ SECRET_KEY = '2^f+3@v7$v1f8yt0!s)3-1t$)tlp+xm17=*g))_xoi&&9m#2a&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'conduitwebapp.azurewebsites.net']
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'conduitwebapp.azurewebsites.net', '20.69.219.50', os.environ.get("AKS_HOST")]
 
 # Application definition
 
@@ -83,47 +82,36 @@ WSGI_APPLICATION = 'conduit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'conduit_db',
-#         'USER': 'myadmin@mydemoserver-20220116',
-#         'PASSWORD': '123!@#qweQWE',
-#         'HOST': 'mydemoserver-20220116.postgres.database.azure.com',
-#         'PORT': '5432'
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'PORT': '10255',
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         },
-#         'ENFORCE_SCHEMA': False,
-#             'CLIENT': {
-#                 'host': 'conduit-cosmos-account.mongo.cosmos.azure.com',
-#                 'port': 10255,
-#                 'username': 'conduit-cosmos-account',
-#                 'password': 'yH8T84180Vh2AP999j05qCKpZO9FjZ4R3zNbDQiFhYUG3MR6qivFzEE8e8OwvdA4eNXuzYvefoX4nkfQmwIIhQ==',
-#                 'authSource': 'conduit_db',
-#                 'authMechanism': 'SCRAM-SHA-1'
-#             }
-#     }
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'conduit_db',
-        'HOST': 'conduit-cosmos-account.mongo.cosmos.azure.com',
-        'USER': 'conduit-cosmos-account',
-        'PASSWORD': 'yH8T84180Vh2AP999j05qCKpZO9FjZ4R3zNbDQiFhYUG3MR6qivFzEE8e8OwvdA4eNXuzYvefoX4nkfQmwIIhQ==',
-        'OPTIONS': {
-            'sslmode': 'require',
-        }
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'conduit_db',
+    #     'USER': 'myadmin@mydemoserver-20220116',
+    #     'PASSWORD': '123!@#qweQWE',
+    #     'HOST': 'mydemoserver-20220116.postgres.database.azure.com',
+    #     'PORT': '5432'
+    # }
+    
+#    'default':{
+#       'ENGINE':'django.db.backends.postgresql',
+#       'NAME':os.getenv('DATABASE_NAME'),
+#       'USER':os.getenv('DATABASE_USER'),
+#       'PASSWORD':os.getenv('DATABASE_PASSWORD'),
+#       'HOST':os.getenv('DATABASE_HOST'),
+#       'PORT':'5432'
+#    }
+
+   'default':{
+      'ENGINE':'djongo',
+      'ENFORCE_SCHEMA': False,
+      'NAME':os.getenv('DATABASE_NAME'),
+      'USER':os.getenv('DATABASE_USER'),
+      'PASSWORD':os.getenv('DATABASE_PASSWORD'),
+      'PORT':'5432',
+      'CLIENT': {
+        'host': os.getenv('DATABASE_HOST')
+      }
+   }    
 }
 
 # Password validation
@@ -165,9 +153,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_WHITELIST = (
-    'http://0.0.0.0:4000',
-    'http://localhost:4000',
-    'http://localhost:8080'
+    '0.0.0.0:4000',
+    'localhost:4000',
+    'localhost:8080'
 )
 
 # Tell Django about the custom `User` model we created. The string
