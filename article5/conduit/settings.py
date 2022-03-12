@@ -94,36 +94,22 @@ WSGI_APPLICATION = 'conduit.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'PORT': '10255',
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         },
-#         'ENFORCE_SCHEMA': False,
-#             'CLIENT': {
-#                 'host': 'conduit-cosmos-account.mongo.cosmos.azure.com',
-#                 'port': 10255,
-#                 'username': 'conduit-cosmos-account',
-#                 'password': 'yH8T84180Vh2AP999j05qCKpZO9FjZ4R3zNbDQiFhYUG3MR6qivFzEE8e8OwvdA4eNXuzYvefoX4nkfQmwIIhQ==',
-#                 'authSource': 'conduit_db',
-#                 'authMechanism': 'SCRAM-SHA-1'
-#             }
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
+        'ENFORCE_SCHEMA': False,
         'NAME': 'conduit_db',
-        'HOST': 'conduit-cosmos-account.mongo.cosmos.azure.com',
-        'USER': 'conduit-cosmos-account',
-        'PASSWORD': 'yH8T84180Vh2AP999j05qCKpZO9FjZ4R3zNbDQiFhYUG3MR6qivFzEE8e8OwvdA4eNXuzYvefoX4nkfQmwIIhQ==',
-        'OPTIONS': {
-            'sslmode': 'require',
-        }
-    }
+        'CLIENT': {
+            'host': 'conduit-cosmos-account.mongo.cosmos.azure.com',
+            'port': 10255,
+            'username': 'conduit-cosmos-account',
+            'password': 'yH8T84180Vh2AP999j05qCKpZO9FjZ4R3zNbDQiFhYUG3MR6qivFzEE8e8OwvdA4eNXuzYvefoX4nkfQmwIIhQ==',
+            'authMechanism': 'SCRAM-SHA-1',
+            'ssl': True,
+            'tlsAllowInvalidCertificates': True,
+            'retryWrites': False
+        }    
+    }    
 }
 
 # Password validation
