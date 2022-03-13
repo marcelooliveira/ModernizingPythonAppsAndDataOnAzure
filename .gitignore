@@ -90,3 +90,4 @@ ENV/
 
 # SQLite3
 db.sqlite3
+article5/import_to_mongo.bat

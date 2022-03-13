@@ -57,9 +57,8 @@ class ArticleViewSet(mixins.CreateModelMixin,
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def list(self, request):
-        serializer_context = {'request': request}
-        page = self.paginate_queryset(self.get_queryset())
-
+        serializer_context = {'request': request}       
+        page = self.paginate_queryset(self.get_queryset())        
         serializer = self.serializer_class(
             page,
             context=serializer_context,
@@ -205,9 +204,9 @@ class TagListAPIView(generics.ListAPIView):
 
         return Response({
             'tags': serializer.data
+            # 'tags': ['implementations', 'codebaseShow', 'introduction', 'welcome']
         }, status=status.HTTP_200_OK)
-
-
+        
 class ArticlesFeedAPIView(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = Article.objects.all()

@@ -5,7 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "pythonPath": "C:\\Users\\moliveira\\appdata\\local\\Programs\\Python\\Python36\\python.exe",
       "name": "Python: Django",
       "type": "python",
       "request": "launch",
