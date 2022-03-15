@@ -1,0 +1,6 @@
+id.int32(),created_at.date_ms(yyyy-MM-dd H:mm:ss),updated_at.date_ms(yyyy-MM-dd H:mm:ss),body.string(),article_id.int32(),author_id.int32()
+1,2022-01-15 15:43:38,2022-01-15 15:43:38,"While most 'todo' demos provide an excellent cursory glance at a framework's capabilities, they typically don't convey the knowledge & perspective required to actually build real applications with it.",1,1
+2,2022-01-15 15:43:39,2022-01-15 15:43:39,"RealWorld solves this by allowing you to choose any frontend (React, Angular, & more) and any backend (Node, Django, & more) and see how they power a real-world, beautifully designed full-stack app called Conduit.",1,1
+3,2022-01-15 15:43:39,2022-01-15 15:43:39,"There are 3 categories: Frontend, Backend and FullStack",2,1
+4,2022-01-15 15:43:40,2022-01-15 15:43:40,"Before starting a new implementation, please check if there is any work in progress for the stack you want to work on.",3,1
+5,2022-01-15 15:43:40,2022-01-15 15:43:40,"If someone else has started working on an implementation, consider jumping in and helping them! by contacting the author.",3,1

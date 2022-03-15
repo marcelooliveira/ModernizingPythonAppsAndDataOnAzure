@@ -87,8 +87,8 @@ WSGI_APPLICATION = 'conduit.wsgi.application'
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'conduit_db',
-#         'USER': 'myadmin@mydemoserver-20220116',
-#         'PASSWORD': '123!@#qweQWE',
+#         'USER': 'myadmin@*******************',
+#         'PASSWORD': '****************',
 #         'HOST': 'mydemoserver-20220116.postgres.database.azure.com',
 #         'PORT': '5432'
 #     }
@@ -100,10 +100,10 @@ DATABASES = {
         'ENFORCE_SCHEMA': False,
         'NAME': 'conduit_db',
         'CLIENT': {
-            'host': 'conduit-cosmos-account.mongo.cosmos.azure.com',
+            'host': '****************.mongo.cosmos.azure.com',
             'port': 10255,
-            'username': 'conduit-cosmos-account',
-            'password': 'yH8T84180Vh2AP999j05qCKpZO9FjZ4R3zNbDQiFhYUG3MR6qivFzEE8e8OwvdA4eNXuzYvefoX4nkfQmwIIhQ==',
+            'username': '****************',
+            'password': '****************',
             'authMechanism': 'SCRAM-SHA-1',
             'ssl': True,
             'tlsAllowInvalidCertificates': True,

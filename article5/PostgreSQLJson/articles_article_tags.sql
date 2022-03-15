@@ -1,1 +1,0 @@
-SELECT json_agg(articles_article_tags) as tags FROM articles_article_tags;
