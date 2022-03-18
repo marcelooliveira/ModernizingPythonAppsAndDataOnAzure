@@ -1,0 +1,4 @@
+id.int32(),created_at.date_ms(yyyy-MM-dd H:mm:ss),updated_at.date_ms(yyyy-MM-dd H:mm:ss),bio.string(),image.string(),user_id.int32()
+
+1,2022-01-15 15:43:38,2022-01-15 15:43:38,NULL,NULL,1
+

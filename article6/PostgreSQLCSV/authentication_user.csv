@@ -1,0 +1,4 @@
+id.int32(),password.string(),is_superuser.boolean(),username.string(),email.string(),is_active.boolean(),is_staff.boolean(),created_at.date_ms(yyyy-MM-dd H:mm:ss),updated_at.date_ms(yyyy-MM-dd H:mm:ss)
+
+1,pbkdf2_sha256$30000$hcyFHvW8VsVA$s4yQHUtXuVJmnBkrk0mqSFmT447yoUYLeF4+z4ddvUo=,False,alice_smith,alice@smith.com,True,False,2022-01-15 15:43:38,2022-01-15 15:43:38
+
