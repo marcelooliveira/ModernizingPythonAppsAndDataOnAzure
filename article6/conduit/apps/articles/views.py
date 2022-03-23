@@ -204,7 +204,6 @@ class TagListAPIView(generics.ListAPIView):
 
         return Response({
             'tags': serializer.data
-            # 'tags': ['implementations', 'codebaseShow', 'introduction', 'welcome']
         }, status=status.HTTP_200_OK)
         
 class ArticlesFeedAPIView(generics.ListAPIView):

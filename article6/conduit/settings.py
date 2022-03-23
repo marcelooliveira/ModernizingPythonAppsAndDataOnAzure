@@ -25,8 +25,8 @@ SECRET_KEY = '2^f+3@v7$v1f8yt0!s)3-1t$)tlp+xm17=*g))_xoi&&9m#2a&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'conduitwebapp.azurewebsites.net']
-
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'conduitwebapp.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -98,12 +98,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'ENFORCE_SCHEMA': False,
-        'NAME': 'conduit_db',
+        'NAME': os.getenv('DATABASE_NAME'),
         'CLIENT': {
-            'host': '****************.mongo.cosmos.azure.com',
+            'host': os.getenv('DATABASE_HOST'),
             'port': 10255,
-            'username': '****************',
-            'password': '****************',
+            'username': os.getenv('DATABASE_USER'),
+            'password': os.getenv('DATABASE_PASSWORD'),
             'authMechanism': 'SCRAM-SHA-1',
             'ssl': True,
             'tlsAllowInvalidCertificates': True,
@@ -148,7 +148,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+FUNCTION_APP_PATH = 'api/az-function-conduit'
+STATIC_URL = '/' + FUNCTION_APP_PATH + '/static/'
 
 CORS_ORIGIN_WHITELIST = (
     'http://0.0.0.0:4000',
@@ -172,3 +173,4 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 20,
 }
+
